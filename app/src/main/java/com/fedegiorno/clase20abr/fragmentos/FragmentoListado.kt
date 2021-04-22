@@ -10,12 +10,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fedegiorno.clase20abr.R
 import com.fedegiorno.clase20abr.adapters.AdapterCursos
 import com.fedegiorno.clase20abr.entities.Cursos
+import com.google.android.material.snackbar.Snackbar
+
+
+//import android.util.Log
+//import androidx.navigation.findNavController
+
+//import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class FragmentoListado : Fragment() {
 
     lateinit var v: View
 
-    lateinit var recCursos: RecyclerView
+    lateinit var rcvCursos: RecyclerView
     private lateinit var linearLayoutManager: LinearLayoutManager
 
     var cursos: MutableList<Cursos> = ArrayList<Cursos>()
@@ -37,7 +44,7 @@ class FragmentoListado : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_fragmento_listado, container, false)
-        recCursos = v.findViewById(R.id.recCursos)
+        rcvCursos = v.findViewById(R.id.rcvCursos)
         return v
     }
 
@@ -57,12 +64,21 @@ class FragmentoListado : Fragment() {
         cursos.add(Cursos("curso 11","docente 11",4 ,"20OCT2021","20DIC2021","08:00 a 10:00","www.miimagen.net"))
         cursos.add(Cursos("curso 12","docente 12",4 ,"20OCT2021","20DIC2021","08:00 a 10:00","www.miimagen.net"))
 
-        recCursos.setHasFixedSize(true)
+        rcvCursos.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(context)
-        recCursos.layoutManager = linearLayoutManager
+        rcvCursos.layoutManager = linearLayoutManager
 
-        cursosListAdapter = AdapterCursos(cursos)
-        recCursos.adapter = cursosListAdapter
+        cursosListAdapter = AdapterCursos(cursos) {pos ->
+            onItemClick(pos)
+        }
 
+        //cursosListAdapter = AdapterCursos(cursos)
+        rcvCursos.adapter = cursosListAdapter
+
+    }
+
+    private fun onItemClick(pos: Int): Boolean {
+        Snackbar.make(v,pos.toString(), Snackbar.LENGTH_SHORT).show()
+        return true
     }
 }

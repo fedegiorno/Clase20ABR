@@ -1,0 +1,37 @@
+1) Creo el proyecto (se crea MainActivity.kt Y activty_main.xml)
+2) Creo directorio /activities
+3) En /activities/ creo MainActivityListaCursos.kt, creandose tambien
+/layout/activity_main_lista_cursos.xml
+4) En /res/ creo New Android Resource File que llamo nav_graph1.xml y pongo como
+Resource Type navigation, creandose el /navigation/nav_graph1 con su correspondiente directorio
+5) En /res/navigation/ creo New Android Resource File que llamo nav_graph2.xml
+6) En /clase20abr/ creo el directorio package que llamo fragmentos
+7) En /clase20abr/fragmentos/ creo tres fragmentos (blank) /FragmentoLogin.kt FragmentoListado.kt
+FragmentoDetalle.kt y se crean además fragment_fragmento_login.xml fragment_fragmento_Listado.xml y
+fragment_fragmento_Detalle.xml
+8) Creo el directorio /entities
+9) Para definir el modelo creo la clase Cursos dentro de /entities, obteniendo el archivo Cursos.kt
+10) Ahora defino la vista en el fragment_fragmento_Listado colocando un recyclerview dentro de un
+ConstraintLayout
+11) Ahora defino el item dentro del directorio /layout/ creo el archivo item_curso.xml donde coloco
+dos EditText (etxNombreUsuario y etxClave) y un Button (btnAcceder) y los ubico dentro del CardView.
+Este CardView lo coloco dentro del item_curso.xml usando Code cambiando el FrameLayout por el
+CardView
+ARMADO DEL CONTROLADOR - ADAPTER
+12) Creo un package (directorio) adapters y creo en el un archivo AdapterCursos.kt que contendra la
+definicion de la clase AdapterCursos
+13) Definimos que reciba como parametros la lista de cursos
+14) Tambien implementa la clase recyclerview.Adapter<AdapterCursos.CursosHolder> es decir que nos
+comprometemos a implementar metodos de la clase recyclerview.Adapter<AdapterCursos.CursosHolder>
+donde CursosHolder es una clase interna de la clase AdapterCursos
+15) Defino la clase interna (dentro de la clase AdapterCursos) CursosHolder que extiende de la clase
+RecyclerView.ViewHolder()
+16) Falta implementar los metodos de la clase, para ello haciendo click donde marca el error
+(en el nombre de AdapterCursos) click en implements members, los marcamos y OK (sobreescribimos
+estos metodos)
+17) El holder es la clase que sirve para comunicar la vista (item) con nuestro adapter, por ello
+debemos definir los metodos que sirvan para interctuar con el item
+18) Completo los metodos onCreateViewHolder, este sirve para ir a buscar el item
+19) getItemCount sirve para traer la cantidad total de items
+20) onBindViewHolder sirve para unir la vista con los datos, recibe el holder y la posicion del item
+Este metodo se ejecutara tantas veces como items se muestren

@@ -10,7 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fedegiorno.clase20abr.R
 import com.fedegiorno.clase20abr.entities.Cursos
 
-class AdapterCursos (private var cursosList: MutableList<Cursos>): RecyclerView.Adapter<AdapterCursos.CursosHolder>()
+class AdapterCursos (
+        private var cursosList: MutableList<Cursos>,
+        val onItemClick: (Int) -> Boolean
+): RecyclerView.Adapter<AdapterCursos.CursosHolder>()
 
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CursosHolder {
@@ -22,6 +25,10 @@ class AdapterCursos (private var cursosList: MutableList<Cursos>): RecyclerView.
     override fun onBindViewHolder(holder: CursosHolder, position: Int) {
         //Sirve para unir la vista con los datos
         holder.setName(cursosList[position].nombreCurso)
+
+        holder.getCardLayout().setOnLongClickListener(){
+            onItemClick(position)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -41,6 +48,9 @@ class AdapterCursos (private var cursosList: MutableList<Cursos>): RecyclerView.
         txt.text = name
     }
 
+    fun getCardLayout (): CardView {
+        return view.findViewById(R.id.crvItemCurso)
+    }
 //    fun setCohorte(cohorte: String) {
 //        val txt: TextView = view.findViewById(R.id.txtCohorte)
 //        txt.text = cohorte
@@ -51,9 +61,6 @@ class AdapterCursos (private var cursosList: MutableList<Cursos>): RecyclerView.
 //        txt.text = CIIE
 //    }
 //
-//    fun getCardLayout (): CardView {
-//        return view.findViewById(R.id.crvItemCurso)
-//    }
 
 //
 //        fun getImageView () : ImageView {
