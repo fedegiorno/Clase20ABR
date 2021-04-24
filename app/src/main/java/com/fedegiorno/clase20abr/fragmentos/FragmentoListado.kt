@@ -72,7 +72,7 @@ class FragmentoListado : Fragment() {
             onItemClick(pos)
         }
 
-        //cursosListAdapter = AdapterCursos(cursos)
+        //Este es el momento donde se muestra en la pantalla
         rcvCursos.adapter = cursosListAdapter
 
     }

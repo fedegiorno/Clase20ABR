@@ -17,6 +17,7 @@ ConstraintLayout
 dos EditText (etxNombreUsuario y etxClave) y un Button (btnAcceder) y los ubico dentro del CardView.
 Este CardView lo coloco dentro del item_curso.xml usando Code cambiando el FrameLayout por el
 CardView
+
 ARMADO DEL CONTROLADOR - ADAPTER
 12) Creo un package (directorio) adapters y creo en el un archivo AdapterCursos.kt que contendra la
 definicion de la clase AdapterCursos
@@ -35,3 +36,17 @@ debemos definir los metodos que sirvan para interctuar con el item
 19) getItemCount sirve para traer la cantidad total de items
 20) onBindViewHolder sirve para unir la vista con los datos, recibe el holder y la posicion del item
 Este metodo se ejecutara tantas veces como items se muestren
+
+21) Para que podamos escuchar algun click dentro de la tarjeta, dentro del ADAPTER tenemos que crear
+un metodo que me traiga la vista CardView que llamamos getCardLayout, en el cual retornamos la vista
+view.findViewById(R.id.crvItemCurso)
+22) El listener de la tarjeta lo escuchare en el ADAPTER onBindViewHolder (necesito tener un
+listener por tarjeta)
+23) Como quiero ejecutar en el listener que esta en el ADAPTER, pero como las acciones pertenecen al
+fragment, debo pasarle desde el fragment hacia el ADAPTER un metodo como parametro (esto en Kotlin
+se llama lambda)
+24) Para en el fragment poder pasar un metodo, debemos en la instanciacion del adapter defino que
+metodo le pasaremos al adapter mediante llaves
+cursosListAdapter = AdapterCursos(cursos) {pos ->
+            onItemClick(pos)
+        }
