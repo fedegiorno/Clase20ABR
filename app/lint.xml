@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="IconLocation">
+        <ignore path="src/main/res/drawable/EP.webp" />
+        <ignore path="src/main/res/drawable/ES.jpg" />
+        <ignore path="src/main/res/drawable/NI.jpg" />
+    </issue>
+    <issue id="UnusedResources">
+        <ignore path="src/main/res/drawable/EP.webp" />
+        <ignore path="src/main/res/drawable/ES.jpg" />
+        <ignore path="src/main/res/drawable/NI.jpg" />
+    </issue>
+</lint>

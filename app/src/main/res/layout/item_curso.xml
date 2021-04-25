@@ -35,9 +35,10 @@
             android:id="@+id/imgNivelEducativo"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:src="@android:drawable/ic_input_add"
+            android:src="@drawable/ni"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <TextView
             android:id="@+id/txtCohorte"
